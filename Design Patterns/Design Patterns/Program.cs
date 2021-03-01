@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Design_Patterns.Patterns.Singleton;
+using System;
 
 namespace Design_Patterns
 {
@@ -6,7 +7,12 @@ namespace Design_Patterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var db = new DataBase())
+            {
+                db.Open();
+                string queryResult = db.Query("SELECT * FROM USERS");
+                Console.WriteLine(queryResult);
+            }
         }
     }
 }
