@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Design_Patterns</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Patterns\Abstract Factory\" />
+    <Folder Include="Patterns\Adapter\" />
+    <Folder Include="Patterns\Facade\" />
+    <Folder Include="Patterns\Singleton\" />
+    <Folder Include="Patterns\Proxy\" />
+  </ItemGroup>
+
+</Project>
