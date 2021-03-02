@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Design_Patterns.Patterns.Facade;
+using Design_Patterns.Patterns.Facade.ConverterLib;
+using System;
 
 namespace Design_Patterns
 {
@@ -6,7 +8,8 @@ namespace Design_Patterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var converter = new SimpleConverter(new VideoConverter());
+            converter.Convert("video.mp4", "MPEG4");
         }
     }
 }
