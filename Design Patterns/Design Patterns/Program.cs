@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Design_Patterns.Patterns.Proxy;
+using System;
 
 namespace Design_Patterns
 {
@@ -6,7 +7,9 @@ namespace Design_Patterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            YesterdayRate yesterdayRate = new YesterdayRate();
+            IYesterdayRate yesterdayRateCached = new YesterdayRateCached(yesterdayRate);
+            Console.WriteLine(yesterdayRateCached.GetRate());
         }
     }
 }
