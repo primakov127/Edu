@@ -12,13 +12,8 @@ namespace Design_Patterns
         {
             var library = new Library();
             var booksAnalyzer = new BooksAnalyzer();
-            var adapter = new Adapter(booksAnalyzer);
-            List<XML> xmlBooks = library.GetBooksXML();
-
-            xmlBooks.ForEach(b => Console.WriteLine(b));
-            XML oldestBook = adapter.GetOldestBook(xmlBooks);
-            Console.WriteLine(oldestBook);
-
+            var adapter = new Adapter(booksAnalyzer, library);
+            XML oldestBook = adapter.GetOldestBook();
         }
     }
 }

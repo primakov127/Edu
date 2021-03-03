@@ -9,25 +9,22 @@ namespace Design_Patterns.Patterns.Adapter
     public class Adapter
     {
         private readonly BooksAnalyzer _booksAnalyzer;
+        private readonly Library _library;
 
-        public Adapter(BooksAnalyzer booksAnalyzer)
+        public Adapter(BooksAnalyzer booksAnalyzer, Library library)
         {
             _booksAnalyzer = booksAnalyzer;
+            _library = library;
         }
 
-        public XML GetOldestBook(List<XML> booksList)
+        public XML GetOldestBook()
         {
-            List<JSON> jsonBooksList = booksList
-                .Select(xml =>
-                {
-                    int bookNum = Int32.Parse(xml.ToString().Last().ToString());
-                    return new JSON(bookNum);
-                }).ToList();
+            List<XML> xmlBooksList = _library.GetBooksXML();
+            List<JSON> jsonBooksList = xmlBooksList.Select(xml => new JSON()).ToList();
 
             JSON jsonOldestBook = _booksAnalyzer.GetOldestBook(jsonBooksList);
 
-            int oldestBookNum = Int32.Parse(jsonOldestBook.ToString().Last().ToString());
-            XML xmlOldestBook = new XML(oldestBookNum);
+            XML xmlOldestBook = new XML();
 
             return xmlOldestBook;
         }

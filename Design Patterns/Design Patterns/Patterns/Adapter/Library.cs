@@ -11,10 +11,10 @@ namespace Design_Patterns.Patterns.Adapter
         {
             _xmlBooks = new List<XML>
             {
-                new XML(1),
-                new XML(2),
-                new XML(3),
-                new XML(4)
+                new XML(),
+                new XML(),
+                new XML(),
+                new XML()
             };
         }
 
