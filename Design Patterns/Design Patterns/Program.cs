@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Design_Patterns.Patterns.Adapter;
+using Design_Patterns.Patterns.Adapter.Data_Formats;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Design_Patterns
 {
@@ -6,7 +10,10 @@ namespace Design_Patterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var library = new Library();
+            var booksAnalyzer = new BooksAnalyzer();
+            var adapter = new Adapter(booksAnalyzer, library);
+            XML oldestBook = adapter.GetOldestBook();
         }
     }
 }
