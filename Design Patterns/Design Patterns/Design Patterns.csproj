@@ -9,8 +9,8 @@
   <ItemGroup>
     <Folder Include="Patterns\Adapter\" />
     <Folder Include="Patterns\Facade\" />
-    <Folder Include="Patterns\Singleton\" />
     <Folder Include="Patterns\Proxy\" />
+    <Folder Include="Patterns\Singleton\" />
   </ItemGroup>
 
 </Project>
