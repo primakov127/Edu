@@ -1,0 +1,21 @@
+.portfolio-section {
+    margin-top: 55px;
+}
+
+.portfolio-section__top-border {
+    margin-top: 25px;
+}
+
+.portfolio-section__people-info {
+    padding-top: 60px;
+}
+
+@media only screen and (max-width: 1179px) {
+    .portfolio-section {
+        margin-top: 25px;
+    }
+
+    .portfolio-section__people-info {
+        margin-top: 30px;
+    }
+}

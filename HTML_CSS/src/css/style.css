@@ -1,0 +1,17 @@
+@import "base/main.css";
+@import "components/header/header.css";
+@import "components/menu/menu.css";
+@import "components/banner/banner.css";
+@import "components/main-title/main-title.css";
+@import "components/featured-content/featured-content.css";
+@import "components/card/card.css";
+@import "components/portfolio/potrfolio.css";
+@import "components/people-info/people-info.css";
+@import "components/people-card/people-card.css";
+@import "components/sections/featured-section.css";
+@import "components/sections/portfolio-section.css";
+@import "components/sections/footer-section.css";
+@import "components/mailing/mailing.css";
+@import "components/social/social.css";
+@import "components/copyright/copyright.css";
+@import "components/mobile-menu/mobile-menu.css";

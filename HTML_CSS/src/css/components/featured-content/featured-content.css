@@ -1,0 +1,10 @@
+.featured-content {
+    background-color: rgb(246, 246, 246);
+}
+
+.featured-content__container {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}
