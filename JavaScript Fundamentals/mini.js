@@ -78,6 +78,7 @@ function asChain(arr) {
     arr.take = function(number) {
         return asChain(take(this, number));
     };
+    return arr;
 }
 
 // function asChain(arr) {
