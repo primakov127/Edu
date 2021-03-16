@@ -1,6 +1,5 @@
 .social {
     display: flex;
-    /* flex-wrap: wrap; */
 }
 
 .social__item {
@@ -12,14 +11,14 @@
     align-items: center;
 }
 
-.social__item h4 {
+.social__titile {
     color: rgb(99, 127, 131);
 
     font-size: 18px;
     font-weight: 700;
 }
 
-.social__item p {
+.social__text {
     margin-top: 5px;
 
     color: rgb(181, 199, 201);

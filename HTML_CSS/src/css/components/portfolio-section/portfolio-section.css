@@ -1,0 +1,29 @@
+.portfolio-section {
+    margin-top: 55px;
+}
+
+.portfolio-section__portfolio-container {
+    max-width: 1170px;
+    margin-top: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.portfolio-section__container {
+    max-width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 60px;
+
+    border-top: 1px solid rgb(217, 217, 217);
+}
+
+@media only screen and (max-width: 1179px) {
+    .portfolio-section {
+        margin-top: 25px;
+    }
+
+    .portfolio-section__container {
+        margin-top: 30px;
+    }
+}

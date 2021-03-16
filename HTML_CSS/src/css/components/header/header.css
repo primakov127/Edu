@@ -1,9 +1,14 @@
 .header {
     display: flex;
 
+    max-width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+
     font-weight: bold;
 
     align-self: center;
+    flex-wrap: wrap;
 }
 
 .header__logo {
@@ -25,6 +30,14 @@
 
 .header__mobile-button {
     display: none;
+}
+
+.header__mobile-button:checked ~ div {
+    display: flex;
+}
+
+.header__mobile-button-icon {
+    display: none;
 
     margin-right: 20px;
 
@@ -34,7 +47,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    .header__mobile-button {
+    .header__mobile-button-icon {
         display: flex;
 
         align-items: center;

@@ -1,5 +1,6 @@
 .mobile-menu {
     display: none;
+    flex: 100%;
 
     background-color: rgb(246, 246, 246);
 
@@ -30,6 +31,6 @@
     font-size: 18px;
 }
 
-.mobile-menu__link_selected {
+.mobile-menu__link:focus {
     color: rgb(228, 85, 29);
 }

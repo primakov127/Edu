@@ -14,11 +14,11 @@
     font-size: 16px;
 }
 
-.menu__link_selected {
+.menu__link:focus {
     color: rgb(228, 85, 29);
 }
 
-.menu__link_selected::after {
+.menu__link:focus::after {
     position: relative;
     top: -20px;
     right: 55%;

@@ -10,57 +10,54 @@
     <title>Static Web Page</title>
   </head>
   <body>
-    <div class="wrapper">
       <header class="header">
         <a href="#" class="header__logo">Site Name</a>
         <nav class="menu header__menu">
-          <a href="#" class="menu__link menu__link_selected">HOME</a>
+          <a href="#" class="menu__link">HOME</a>
           <a href="#" class="menu__link">ABOUT</a>
           <a href="#" class="menu__link">SERVICES</a>
           <a href="#" class="menu__link">PROJECT</a>
           <a href="#" class="menu__link">BLOG</a>
           <a href="#" class="menu__link">CONTACT</a>
         </nav>
-        <button class="header__mobile-button">
+        <input class="header__mobile-button" type="checkbox" id="menu-btn" />
+        <label class="header__mobile-button-icon" for="menu-btn">
           <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-        </button>
+        </label>
+        <div class="mobile-menu">
+          <nav>
+            <a href="#" class="mobile-menu__link">HOME</a>
+            <a href="#" class="mobile-menu__link">ABOUT</a>
+            <a href="#" class="mobile-menu__link">SERVICES</a>
+            <a href="#" class="mobile-menu__link">PROJECT</a>
+            <a href="#" class="mobile-menu__link">BLOG</a>
+            <a href="#" class="mobile-menu__link">CONTACT</a>
+          </nav>
+        </div>
       </header>
-      <!-- <div class="mobile-menu mobile-menu_opened"> -->
-      <div class="mobile-menu">
-        <nav>
-          <a href="#" class="mobile-menu__link mobile-menu__link_selected">HOME</a>
-          <a href="#" class="mobile-menu__link">ABOUT</a>
-          <a href="#" class="mobile-menu__link">SERVICES</a>
-          <a href="#" class="mobile-menu__link">PROJECT</a>
-          <a href="#" class="mobile-menu__link">BLOG</a>
-          <a href="#" class="mobile-menu__link">CONTACT</a>
-        </nav>
-      </div>
-    </div>
 
     <main>
       <section class="banner">
-        <div class="banner__title">
+        <h1 class="banner__title">
           <span>Lorem ipsum laro</span> <span>dolore sit amet vivamus</span>
-        </div>
+        </h1>
 
-        <h3 class="banner__text">LOREM IPSUM LARO SIT AMET DOLORE SIT AME</h3>
+        <p class="banner__text">LOREM IPSUM LARO SIT AMET DOLORE SIT AME</p>
         <div class="banner__pointer"></div>
       </section>
 
       <section class="featured-section">
-        <div class="wrapper">
-          <div class="main-title featured-section__main-title">
-            <h1 class="main-title__text">Lorem ipsum dolor sit amet</h1>
-            <h2 class="main-title__description">
-              Donec odio uisque volutpat mattis eros ullam malesuada erat ut
-              turpis.
-            </h2>
+          <div class="featured-section__main-title-container">
+            <div class="main-title">
+              <h2 class="main-title__text">Lorem ipsum dolor sit amet</h2>
+              <p class="main-title__description">
+                Donec odio uisque volutpat mattis eros ullam malesuada erat ut
+                turpis.
+              </p>
+            </div>
           </div>
-        </div>
 
         <div class="featured-content">
-          <div class="wrapper">
             <div class="featured-content__container">
               <div class="card">
                 <i
@@ -105,182 +102,187 @@
                 <a href="#" class="card__button">More</a>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
       <section class="portfolio-section">
-        <div class="wrapper">
           <div class="main-title">
-            <h1 class="main-title__text">Cras ornare tristique elit</h1>
-            <h2 class="main-title__description">
+            <h2 class="main-title__text">Cras ornare tristique elit</h2>
+            <p class="main-title__description">
               Donec odio uisque volutpat mattis eros ullam malesuada erat ut
               turpis.
-            </h2>
+            </p>
           </div>
 
-          <div class="portfolio">
-            <div class="portfolio__top-border portfolio-section__top-border">
-              <div class="portfolio__line"></div>
-              <div class="portfolio__button-container">
-                <div class="portfolio__button portfolio__button_direction_left">
-                  <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          <div class="portfolio-section__portfolio-container">
+            <div class="portfolio">
+              <div class="portfolio__top-border">
+                <div class="portfolio__line"></div>
+                <div class="portfolio__button-container">
+                  <div class="portfolio__button portfolio__button_direction_left">
+                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                  </div>
+                  <div
+                    class="portfolio__button portfolio__button_direction_right"
+                  >
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                  </div>
                 </div>
-                <div
-                  class="portfolio__button portfolio__button_direction_right"
-                >
-                  <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                <div class="portfolio__line"></div>
+              </div>
+  
+              <div class="portfolio__image-container">
+                <img src="/src/images/orange.png" />
+              </div>
+  
+              <a href="#" class="portfolio__link">View Portfolio</a>
+            </div>
+          </div>
+
+          <div class="portfolio-section__container">
+            <div class="people-info">
+              <div class="people-card">
+                <img
+                  class="people-card__photo"
+                  src="/src/images/people-info/human1.png"
+                />
+                <div class="people-card__container">
+                  <h3 class="people-card__title">Integer vitae libero</h3>
+                  <p class="people-card__description">
+                    Praesent dapibus, neque id cursus faucibus, tortor neque
+                    egestas augue, eu vulputate magna eros eu erat. Aliquam erat
+                    volutpat. Nam dui mi, tincidunt lorem ipsuk dolor
+                  </p>
                 </div>
               </div>
-              <div class="portfolio__line"></div>
-            </div>
-
-            <div class="portfolio__image-container">
-              <img src="/src/images/orange.png" />
-            </div>
-
-            <a href="#" class="portfolio__link">View Portfolio</a>
-          </div>
-
-          <div class="people-info portfolio-section__people-info">
-            <div class="people-card">
-              <img
-                class="people-card__photo"
-                src="/src/images/people-info/human1.png"
-              />
-              <div class="people-card__container">
-                <h3 class="people-card__title">Integer vitae libero</h3>
-                <p class="people-card__description">
-                  Praesent dapibus, neque id cursus faucibus, tortor neque
-                  egestas augue, eu vulputate magna eros eu erat. Aliquam erat
-                  volutpat. Nam dui mi, tincidunt lorem ipsuk dolor
-                </p>
+              <div class="people-card">
+                <img
+                  class="people-card__photo"
+                  src="/src/images/people-info/human2.png"
+                />
+                <div class="people-card__container">
+                  <h3 class="people-card__title">Vestibulum commodo</h3>
+                  <p class="people-card__description">
+                    Lorem dapibus, neque id cursus faucibus, tortor neque egestas
+                    augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
+                    Nam dui mi, tincidunt quis, accumsan porttitor
+                  </p>
+                </div>
+              </div>
+              <div class="people-card">
+                <img
+                  class="people-card__photo"
+                  src="/src/images/people-info/human3.png"
+                />
+                <div class="people-card__container">
+                  <h3 class="people-card__title">Fusce pellentesque</h3>
+                  <p class="people-card__description">
+                    Cations t dapibus, neque id cursus faucibus, tortor neque
+                    egestas augue, eu vulputate magna eros eu erat. Aliquam erat
+                    volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+                    facilisis luctus, metus
+                  </p>
+                </div>
+              </div>
+              <div class="people-card">
+                <img
+                  class="people-card__photo"
+                  src="/src/images/people-info/human4.png"
+                />
+                <div class="people-card__container">
+                  <h3 class="people-card__title">Donec quis dui dolor</h3>
+                  <p class="people-card__description">
+                    Sumitris dapibus, neque id cursus faucibus, tortor neque
+                    egestas augue, eu vulputate magna eros eu erat. Aliquam erat
+                    volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+                    facilisis luctus, metus
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="people-card">
-              <img
-                class="people-card__photo"
-                src="/src/images/people-info/human2.png"
-              />
-              <div class="people-card__container">
-                <h3 class="people-card__title">Vestibulum commodo</h3>
-                <p class="people-card__description">
-                  Lorem dapibus, neque id cursus faucibus, tortor neque egestas
-                  augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.
-                  Nam dui mi, tincidunt quis, accumsan porttitor
-                </p>
-              </div>
-            </div>
-            <div class="people-card">
-              <img
-                class="people-card__photo"
-                src="/src/images/people-info/human3.png"
-              />
-              <div class="people-card__container">
-                <h3 class="people-card__title">Fusce pellentesque</h3>
-                <p class="people-card__description">
-                  Cations t dapibus, neque id cursus faucibus, tortor neque
-                  egestas augue, eu vulputate magna eros eu erat. Aliquam erat
-                  volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                  facilisis luctus, metus
-                </p>
-              </div>
-            </div>
-            <div class="people-card">
-              <img
-                class="people-card__photo"
-                src="/src/images/people-info/human4.png"
-              />
-              <div class="people-card__container">
-                <h3 class="people-card__title">Donec quis dui dolor</h3>
-                <p class="people-card__description">
-                  Sumitris dapibus, neque id cursus faucibus, tortor neque
-                  egestas augue, eu vulputate magna eros eu erat. Aliquam erat
-                  volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-                  facilisis luctus, metus
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer-section">
-      <div class="main-title footer-section__main-title">
-        <h1 class="main-title__text">Cras ornare tristique elit</h1>
-        <h2 class="main-title__description">
-          Donec odio uisque volutpat mattis eros ullam malesuada erat ut turpis.
-        </h2>
+    <footer class="footer">
+      <div class="footer__main-title-container">
+        <div class="main-title">
+          <h2 class="main-title__text">Cras ornare tristique elit</h2>
+          <p class="main-title__description">
+            Donec odio uisque volutpat mattis eros ullam malesuada erat ut turpis.
+          </p>
+        </div>
       </div>
 
-      <div class="mailing footer-section__mailing">
-        <div class="wrapper">
-          <div class="mailing__container">
-            <div class="mailing__letter-card">
-              <div class="mailing__title">
-                <i class="fa fa-envelope fa-3x" aria-hidden="true"></i>
-                <div>
-                  <h4>Subscribe Our Newsletter</h4>
-                  <p>via email on how to grow your business online</p>
+      <div class="footer__mailing-container">
+        <div class="mailing">
+            <div class="mailing__container">
+              <div class="mailing__letter-card">
+                <div class="mailing__title">
+                  <i class="fa fa-envelope fa-3x" aria-hidden="true"></i>
+                  <div>
+                    <h4 class="mailing__text">Subscribe Our Newsletter</h4>
+                    <p class="mailing__descriptions">via email on how to grow your business online</p>
+                  </div>
                 </div>
+                <form class="mailing__form">
+                  <input class="mailing__text-field" type="text" />
+                  <input class="mailing__button" type="submit" value="Sign up" />
+                </form>
               </div>
-              <form class="mailing__form">
-                <input type="text" />
-                <input type="submit" value="Sign up" />
-              </form>
+  
+              <div class="mailing__twitter-card">
+                <i class="fa fa-twitter fa-4x" aria-hidden="true"></i>
+                <p class="mailing__twitter-text">
+                  Donec nec justo eget felis facilisis fermentum. Aliquam
+                  porttitor mauris sit amet orci. Aenean dignissim pellentesque
+                  felis euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras
+                  consequat <a class="mailing__link" href="#">@johndoes</a>
+                </p>
+              </div>
             </div>
-
-            <div class="mailing__twitter-card">
-              <i class="fa fa-twitter fa-4x" aria-hidden="true"></i>
-              <p>
-                Donec nec justo eget felis facilisis fermentum. Aliquam
-                porttitor mauris sit amet orci. Aenean dignissim pellentesque
-                felis euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras
-                consequat <a href="#">@johndoes</a>
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
-      <div class="wrapper">
-        <div class="social footer-section__social">
-          <div class="social__item">
-            <div class="social__icon">
-              <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+        <div class="footer__social-container">
+          <div class="social">
+            <div class="social__item">
+              <div class="social__icon">
+                <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 class="social__titile" >Follow us on Facebook</h4>
+                <p class="social__text" >Faucibus toroot mentus</p>
+              </div>
             </div>
-            <div>
-              <h4>Follow us on Facebook</h4>
-              <p>Faucibus toroot mentus</p>
+            <div class="social__item">
+              <div class="social__icon">
+                <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 class="social__titile" >Follow us on Google +</h4>
+                <p class="social__text" >Faucibus toroot mentus</p>
+              </div>
             </div>
-          </div>
-          <div class="social__item">
-            <div class="social__icon">
-              <i class="fa fa-google-plus fa-2x" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h4>Follow us on Google +</h4>
-              <p>Faucibus toroot mentus</p>
-            </div>
-          </div>
-          <div class="social__item">
-            <div class="social__icon">
-              <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h4>Follow us on LinkedIn</h4>
-              <p>Faucibus toroot mentus</p>
+            <div class="social__item">
+              <div class="social__icon">
+                <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h4 class="social__titile" >Follow us on LinkedIn</h4>
+                <p class="social__text" >Faucibus toroot mentus</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="copyright footer-section__copyright">
-        <p>
-          Designed by: www.alltemplateneeds.com / Images from:
-          www.wallpaperswide.com / www.photorack.net Copyright(c) website name.
-        </p>
+      <div class="footer__copyright-container">
+        <div class="copyright">
+          <p class="copyright__text">
+            Designed by: www.alltemplateneeds.com / Images from:
+            www.wallpaperswide.com / www.photorack.net Copyright(c) website name.
+          </p>
+        </div>
       </div>
     </footer>
   </body>

@@ -5,6 +5,10 @@
 .featured-content__container {
     display: flex;
 
+    max-width: 1170px;
+    margin-right: auto;
+    margin-left: auto;
+
     flex-wrap: wrap;
     justify-content: center;
 }

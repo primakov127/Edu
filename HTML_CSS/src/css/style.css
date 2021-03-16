@@ -8,10 +8,11 @@
 @import "components/portfolio/potrfolio.css";
 @import "components/people-info/people-info.css";
 @import "components/people-card/people-card.css";
-@import "components/sections/featured-section.css";
-@import "components/sections/portfolio-section.css";
-@import "components/sections/footer-section.css";
 @import "components/mailing/mailing.css";
 @import "components/social/social.css";
 @import "components/copyright/copyright.css";
 @import "components/mobile-menu/mobile-menu.css";
+@import "components/footer/footer.css";
+@import "components/portfolio-section/portfolio-section.css";
+@import "components/featured-section/featured-section.css";
+
