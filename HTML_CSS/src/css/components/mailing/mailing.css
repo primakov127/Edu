@@ -1,7 +1,6 @@
 .mailing {
     max-width: 1170px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
 
     color: white;
     background-color: rgb(99, 127, 131);
@@ -30,18 +29,13 @@
 .mailing__title {
     display: flex;
     flex: 1;
-
-    margin-top: -10px;
-
-    align-items: center;
 }
 
-.mailing__title i {
+.mailing__icon {
     margin-right: 15px;
 
-    transform: scale(0.85);
+    line-height: 38px;
 }
-
 
 .mailing__text {
     font-size: 18px;

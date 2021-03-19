@@ -11,8 +11,7 @@
 
 .portfolio-section__container {
     max-width: 1170px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0 auto;
     padding-top: 60px;
 
     border-top: 1px solid rgb(217, 217, 217);
