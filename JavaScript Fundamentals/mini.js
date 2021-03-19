@@ -1,42 +1,30 @@
 
-
 function isArray(obj) {
-    if (isUndefined(obj) || isNull(obj)) {
-        return false;
-    }
-    return obj.constructor === Array;
+    return isNullOrUndefined(obj) ? false : obj.constructor === Array;
 }
 
 function isBoolean(obj) {
-    if (isUndefined(obj) || isNull(obj)) {
-        return false;
-    }
-    return obj.constructor === Boolean;
+    return isNullOrUndefined(obj) ? false : obj.constructor === Boolean;
 }
 
 function isDate(obj) {
-    if (isUndefined(obj) || isNull(obj)) {
-        return false;
-    }
-    return obj.constructor === Date;
+    return isNullOrUndefined(obj) ? false : obj.constructor === Date;
 }
 
 function isNumber(obj) {
-    if (isUndefined(obj) || isNull(obj)) {
-        return false;
-    }
-    return obj.constructor === Number;
+    return isNullOrUndefined(obj) ? false : obj.constructor === Number;
 }
 
 function isString(obj) {
-    return typeof(obj) === "string";
+    return isNullOrUndefined(obj) ? false : obj.constructor === String;
 }
 
 function isFunction(obj) {
-    if (isUndefined(obj) || isNull(obj)) {
-        return false;
-    }
-    return obj.constructor === Function;
+    return isNullOrUndefined(obj) ? false : obj.constructor === Function;
+}
+
+function isNullOrUndefined(obj) {
+    return isNull(obj) || isUndefined(obj);
 }
 
 function isUndefined(obj) {
@@ -80,18 +68,3 @@ function asChain(arr) {
     };
     return arr;
 }
-
-// function asChain(arr) {
-//     return {
-//         result: arr,
-//         skip: function(number) {
-//             this.result = skip(this.result, number);
-//             return this;
-//         },
-
-//         take: function(number) {
-//             this.result = take(this.result, number);
-//             return this;
-//         },
-//     }
-// }
