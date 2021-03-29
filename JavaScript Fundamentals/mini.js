@@ -1,30 +1,26 @@
 
 function isArray(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === Array;
+    return Object.prototype.toString.call(obj) === "[object Array]";
 }
 
 function isBoolean(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === Boolean;
+    return typeof obj === "boolean";
 }
 
 function isDate(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === Date;
+    return Object.prototype.toString.call(obj) === "[object Date]";
 }
 
 function isNumber(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === Number;
+    return typeof obj === "number";
 }
 
 function isString(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === String;
+    return typeof obj === "string";
 }
 
 function isFunction(obj) {
-    return isNullOrUndefined(obj) ? false : obj.constructor === Function;
-}
-
-function isNullOrUndefined(obj) {
-    return isNull(obj) || isUndefined(obj);
+    return typeof obj === "function";
 }
 
 function isUndefined(obj) {
