@@ -1,0 +1,11 @@
+.copyright {
+    background-color: rgb(99, 127, 131);
+}
+
+.copyright__text {
+    text-align: center;
+
+    color: white;
+
+    font-size: 14px;
+}

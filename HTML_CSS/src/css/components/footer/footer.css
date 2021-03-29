@@ -1,0 +1,27 @@
+.footer {
+    margin-top: 30px;
+}
+
+.footer__main-title-container {
+    padding: 40px 0;
+
+    color: white;
+    background-color: rgb(99, 127, 131);
+}
+
+.footer__mailing-container {
+    padding-bottom: 50px;
+
+    background-color: rgb(99, 127, 131);
+}
+
+.footer__social-container {
+    max-width: 1170px;
+    margin: 30px auto;
+}
+
+.footer__copyright-container {
+    padding: 40px 0;
+
+    background-color: rgb(99, 127, 131);
+}

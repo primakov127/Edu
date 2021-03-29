@@ -1,0 +1,89 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+
+    height: 520px;
+    max-height: 520px;
+
+    background-image: url("/src/images/banner.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    align-items: center;
+}
+
+.banner__title {
+    max-width: 510px;
+    margin-top: 110px;
+
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: white;
+
+    font-family: "PT Sans", sans-serif;
+    font-size: 40px;
+}
+
+.banner__title-underline {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    border-bottom: 2px solid white;
+}
+
+.banner__text {
+    max-width: 350px;
+    margin-top: 25px;
+
+    text-align: center;
+    letter-spacing: 0.2em;
+
+    color: white;
+
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.banner__pointer {
+    width: 70px;
+    height: 70px;
+    margin-top: 40px;
+
+    border-radius: 50%;
+    background-color: rgb(228, 85, 29);
+}
+
+.banner__pointer::after {
+    position: relative;
+    top: 15%;
+    left: 50%;
+
+    display: inline-block;
+
+    width: 0;
+
+    content: "\279E";
+    transform: rotate(90deg) scale(2);
+
+    color: white;
+}
+
+@media only screen and (max-width: 570px) {
+    .banner__title {
+        font-size: 28px;
+    }
+
+    .banner__text {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 355px) {
+    .banner__title {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,13 @@
+.featured-content {
+    background-color: rgb(246, 246, 246);
+}
+
+.featured-content__container {
+    display: flex;
+
+    max-width: 1170px;
+    margin: 0 auto;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}

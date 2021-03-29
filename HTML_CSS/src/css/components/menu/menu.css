@@ -1,0 +1,41 @@
+.menu {
+    display: flex;
+
+    align-items: center;
+}
+
+.menu__link {
+    margin-left: 50px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    font-size: 16px;
+}
+
+.menu__link:focus {
+    color: rgb(228, 85, 29);
+}
+
+.menu__link:focus::after {
+    position: relative;
+    top: -20px;
+    right: 55%;
+
+    display: inline-block;
+
+    width: 0;
+    margin: auto 0;
+
+    content: "\2039";
+    transform: rotate(-90deg) scale(1.5);
+
+    color: rgb(99, 127, 131);
+}
+
+@media only screen and (max-width: 1200px) {
+    .menu {
+        display: none;
+    }
+}

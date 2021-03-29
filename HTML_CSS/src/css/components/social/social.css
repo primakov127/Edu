@@ -1,0 +1,52 @@
+.social {
+    display: flex;
+}
+
+.social__item {
+    display: flex;
+
+    min-width: 270px;
+    margin-right: auto;
+
+    align-items: center;
+}
+
+.social__titile {
+    color: rgb(99, 127, 131);
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.social__text {
+    margin-top: 5px;
+
+    color: rgb(181, 199, 201);
+
+    font-size: 14px;
+}
+
+.social__icon {
+    display: flex;
+
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+
+    color: white;
+    border-radius: 50%;
+    background-color: rgb(228, 85, 29);
+
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .social {
+        flex-direction: column;
+    }
+
+    .social__item {
+        margin: 10px auto 0;
+    }
+}
