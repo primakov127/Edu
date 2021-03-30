@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "commonjs": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "semi": [2, "always"],
+    "indent": ["error", 2, { "ignoredNodes": ["ConditionalExpression"] }],
+    "max-len": ["error", { "code": 100 }],
+    "no-multi-spaces": "error",
+    "react/prop-types": 0
+  }
+}
