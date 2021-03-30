@@ -28,7 +28,7 @@ const Timer = (props) => {
       setTime((prevState) => prevState - 1);
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   });
 
   useEffect(() => {
