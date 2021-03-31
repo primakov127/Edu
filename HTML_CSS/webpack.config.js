@@ -42,8 +42,5 @@ module.exports = {
                 }
             }
         ]
-    },
-    // resolve: {
-    //     roots: [path.resolve(__dirname, "imgs")]
-    // }
+    }
 }
