@@ -1,5 +1,8 @@
-﻿using Logger.Implementation;
+﻿using ImpromptuInterface;
+using Logger.Implementation;
 using System;
+using System.Dynamic;
+using System.Reflection;
 
 namespace Logger
 {
@@ -7,23 +10,37 @@ namespace Logger
     {
         static void Main()
         {
-            Logger consoleLog = new Logger();
-            Logger fileLog = new Logger(new FileLogger(".log"));
+            var loggingProxy = new LoggingProxy<ISomeInterface>(new Logger());
+            var loggedInstance = loggingProxy.CreateInstance(new SomeClass());
 
-            var errorMessage = "Critical Error";
-            var er = new Exception(errorMessage);
-            var warningMessage = "Warning smth";
-            var infoMessage = "Info smth";
+            loggedInstance.DoSmth1();
+            loggedInstance.DoSmth2(5);
+            loggedInstance.DoSmth3("str", 6);
+        }
+    }
 
-            consoleLog.Error(errorMessage);
-            consoleLog.Error(er);
-            consoleLog.Warning(warningMessage);
-            consoleLog.Info(infoMessage);
+    public interface ISomeInterface
+    {
+        void DoSmth1();
+        void DoSmth2(int n);
+        void DoSmth3(string s, int n);
+    }
 
-            fileLog.Error(errorMessage);
-            fileLog.Error(er);
-            fileLog.Warning(warningMessage);
-            fileLog.Info(infoMessage);
+    public class SomeClass : ISomeInterface
+    {
+        public void DoSmth1()
+        {
+            // Do smth
+        }
+
+        public void DoSmth2(int n)
+        {
+            // Do smth
+        }
+
+        public void DoSmth3(string s, int n)
+        {
+            // Do smth
         }
     }
 }
