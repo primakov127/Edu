@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Design_Patterns
 {
@@ -6,7 +6,7 @@ namespace Design_Patterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+          
         }
     }
 }
