@@ -4,33 +4,23 @@ function printWindowSize() {
 
 function printEnvInfo() {
   for (let propName in window.navigator) {
-    let propValue = window.navigator[propName];
-    if (propValue?.constructor === String) {
+    const propValue = window.navigator[propName];
+    if (typeof propValue === "string") {
       console.log(propName, propValue);
     }
   }
 }
 
-function getSearch(href) {
-  let signIndex = href.indexOf("?") === -1 ? href.indexOf("#") : href.indexOf("?");
-  if (signIndex === -1) {
-    return "";
-  }
-  let search = href.substr(signIndex + 1, href.length);
-  return search;
+function setSearchParameters(name, value) {
+  const searchParams = new URLSearchParams(window.location.search);
+  searchParams.set(name, value);
+  window.location.search = searchParams;
 }
 
-function setUrl(name, value, sign) {
-  let search = getSearch(window.location.href);
-  let queryParams = new URLSearchParams(search);
-  queryParams.set(name, value);
-  history.replaceState(null, null, sign + queryParams.toString());
+function setHashParameters(name, value) {
+  const hashParams = new URLSearchParams(window.location.hash.replace("#", "?"));
+  hashParams.set(name, value);
+  history.replaceState(null, null, `#${hashParams}`);
 }
 
-function setUrlParameters(name, value) {
-  setUrl(name, value, "?");
-}
-
-function setUrlHashParameter(name, value) {
-  setUrl(name, value, "#");
-}
+window.addEventListener("resize", printWindowSize);
