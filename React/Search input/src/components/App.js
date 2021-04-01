@@ -5,9 +5,9 @@ const App = () => {
   return (
     <SearchInput
       placeholder="Search"
-      mode={SearchInputModes.EnterPressed}
+      mode={SearchInputModes.Immediate}
       onSearch={(value) => console.log(`Search ${value}`)}
-    ></SearchInput>
+    />
   );
 };
 

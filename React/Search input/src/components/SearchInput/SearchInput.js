@@ -42,13 +42,19 @@ const StoppedTypingInput = (props) => {
 const SearchInput = (props) => {
   const { mode } = props;
 
-  return mode === SearchInputModes.Immediate
-    ? ImmediateInput(props)
-    : mode === SearchInputModes.EnterPressed
-    ? EnterPressedInput(props)
-    : mode === SearchInputModes.StoppedTyping
-    ? StoppedTypingInput(props)
-    : null;
+  if (mode === SearchInputModes.Immediate) {
+    return ImmediateInput(props);
+  }
+
+  if (mode === SearchInputModes.EnterPressed) {
+    return EnterPressedInput(props);
+  }
+
+  if (mode === SearchInputModes.StoppedTyping) {
+    return StoppedTypingInput(props);
+  }
+  
+  return ImmediateInput(props);
 };
 
 export const SearchInputModes = {
