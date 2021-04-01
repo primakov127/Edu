@@ -1,0 +1,27 @@
+.twit-card {
+    width: 500px;
+    margin-top: 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+.twit-card__img {
+    width: 40px;
+
+    border-radius: 5px;
+}
+
+.twit-card__desc {
+    padding: 5px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 4px;
+
+    font-size: 18px;
+}
+
+.twit-card__attach {
+    width: 400px;
+}

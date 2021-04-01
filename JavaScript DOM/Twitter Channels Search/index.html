@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <title>Twitter Channels Search</title>
-    <script defer src="index.js"></script>
-  </head>
+  <head> </head>
   <body>
-    <h1 id="title">Twitter Channels</h1>
+    <h1 class="title"></h1>
 
-    <p class="label">Enter the name of the channel</p>
-    <input id="text-field" type="text" />
-    <button id="add-button">Add channel</button>
-    
-    <div id="dropdown-list"></div>
+    <div class="main">
+      
+    </div>
 
-    <div id="channel-list"></div>
+    <template id="head">
+      <link rel="stylesheet" />
+      <link rel="stylesheet" href="style.css" />
+      <title></title>
+      <script type="module"></script>
+    </template>
+
+    <template id="channelsPage">
+      <p class="label">Enter the name of the channel</p>
+      <input id="text-field" type="text" />
+      <button id="add-button">Add channel</button>
+
+      <div id="dropdown-list"></div>
+
+      <div id="channel-list"></div>
+    </template>
 
     <template id="channel-list-item">
-        <div class="channel-list__item">
-            <h2></h2>
-            <button>remove</button>
-            <div class="channel-list__footer">
-                <p></p>
-                <p>Followers: </p>
-            </div>
+      <div class="channel-list__item">
+        <h2></h2>
+        <button>remove</button>
+        <div class="channel-list__footer">
+          <p></p>
+          <p>Followers:</p>
         </div>
+      </div>
     </template>
 
     <template id="dropdown-list-item">
-        <div class="dropdown-list__item">
-            <img class="dropdown-list__image">
-            <p class="dropdown-list__name"></p>
-            <p class="dropdown-list__screen-name"></p>
-        </div>
+      <div class="dropdown-list__item">
+        <img class="dropdown-list__image" />
+        <p class="dropdown-list__name"></p>
+        <p class="dropdown-list__screen-name"></p>
+      </div>
     </template>
+
+    <template id="tweetsPage">
+      <div id="tweet-list"></div>
+    </template>
+
+    <template id="card">
+      <div class="twit-card">
+        <img class="twit-card__img" />
+        <p class="twit-card__desc"></p>
+        <img class="twit-card__attach" />
+      </div>
+    </template>
+
+    <script type="module" src="index.js"></script>
   </body>
-  
 </html>

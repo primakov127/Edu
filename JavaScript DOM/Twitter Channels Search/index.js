@@ -1,106 +1,51 @@
+import { getChannelById } from "./dataService.js";
+
 const EMPTY_STRING = "";
+const main = document.querySelector(".main");
 
-function renderDropdownList(event) {
-  let inputName = event.target.value.toUpperCase();
-  let dropdownList = document.getElementById("dropdown-list");
-  let template = document.getElementById("dropdown-list-item");
+function renderChannelsPage() {
+  const channelsPageTemplate = document.getElementById("channelsPage");
+  const channelsPage = channelsPageTemplate.content.cloneNode(true);
 
-  dropdownList.innerHTML = EMPTY_STRING;
-  if (inputName.length === 0) {
-    return;
-  }
+  renderPageHead("channels", "Twitter Channels Search");
+  renderPageTitle("Twitter Channels");
 
-  fetch("data.json")
-    .then((result) => result.json())
-    .then((data) => {
-      data
-        .filter((item) => item.name.toUpperCase().includes(inputName))
-        .forEach((item) => {
-          let clone = template.content.cloneNode(true).firstElementChild;
-
-          clone.setAttribute("id", item.id);
-          clone.setAttribute("name", item.name);
-          clone.addEventListener("click", () => selectDropdownListItem(item.name));
-          clone.querySelector(".dropdown-list__image").setAttribute("src", item.image_url);
-          clone.querySelector(".dropdown-list__name").innerText = item.name;
-          clone.querySelector(".dropdown-list__screen-name").innerText = `@${item.screen_name}`;
-
-          dropdownList.appendChild(clone);
-        });
-    });
+  clearMain();
+  main.append(channelsPage);
 }
 
-function selectDropdownListItem(name) {
-  let input = document.getElementById("text-field");
+export function renderTweetsPage(channelId) {
+  const tweetsPageTemplate = document.getElementById("tweetsPage");
+  const tweetsPage = tweetsPageTemplate.content.cloneNode(true);
 
-  input.value = name;
-  document.getElementById("dropdown-list").innerHTML = EMPTY_STRING;
+  getChannelById(channelId).then((channel) => {
+    renderPageHead("tweets", channel.name);
+    renderPageTitle(`${channel.name} Channel`);
+  });
+
+  clearMain();
+  main.append(tweetsPage);
 }
 
-function addToChannelList() {
-  let channelList = document.getElementById("channel-list");
-  let input = document.getElementById("text-field");
-  let template = document.getElementById("channel-list-item");
-  let name = input.value;
+function renderPageHead(pageName, title) {
+  const headTemplate = document.getElementById("head");
+  const head = headTemplate.content.cloneNode(true);
 
-  if (name === EMPTY_STRING) {
-    return;
-  }
+  head.querySelector("link").setAttribute("href", `${pageName}.css`);
+  head.querySelector("title").innerText = title;
+  head.querySelector("script").setAttribute("src", `${pageName}.js`);
 
-  fetch("data.json")
-    .then((result) => result.json())
-    .then((data) => {
-      let item = data.find((item) => item.name === name);
-      let clone = template.content.cloneNode(true).firstElementChild;
-
-      clone.setAttribute("id", item.id);
-      clone.setAttribute("name", item.name);
-      clone.addEventListener("click", (event) => {goToChannelPage(event, item.id);});
-      clone.querySelector("h2").innerText = item.name;
-      clone.querySelector("button").addEventListener("click", () => {removeChannel(item.id);});
-      clone.querySelector(".channel-list__footer").children[0].innerText = item.description;
-      clone.querySelector(".channel-list__footer").children[1].innerText = item.followers_count;
-
-      channelList.appendChild(clone);
-    });
-
-    input.value = EMPTY_STRING;
+  document.head.innerHTML = null;
+  document.head.append(head);
 }
 
-function goToChannelPage(event, id) {
-  if (event.target.tagName === "BUTTON") {
-    return;
-  }
-
-  changeUrl(id);
+function renderPageTitle(title) {
+  document.querySelector(".title").innerText = title;
 }
 
-function changeUrl(id) {
-  let params = new URLSearchParams();
-
-  params.set("id", id);
-  window.location.href = `channel.html?${params.toString()}`;
+// Clear main container before the page updating
+function clearMain() {
+    main.innerHTML = EMPTY_STRING;
 }
 
-function removeChannel(id) {
-  let items = document.getElementById("channel-list").children;
-
-  for (let i = 0; i < items.length; i++) {
-    let item = items[i];
-
-    if (item.getAttribute("id") != id) {
-      continue;
-    }
-
-    item.remove();
-  }
-}
-
-document
-  .getElementById("text-field")
-  .addEventListener("input", renderDropdownList);
-
-document
-  .getElementById("add-button")
-  .addEventListener("click", addToChannelList);
-  
+renderChannelsPage();
