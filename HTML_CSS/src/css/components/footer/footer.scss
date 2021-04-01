@@ -1,3 +1,9 @@
+$some-color: rgb(99, 127, 131);
+
+@mixin bg-color($property) {
+    background-color: $property;
+}
+
 .footer {
     margin-top: 30px;
 }
@@ -6,13 +12,13 @@
     padding: 40px 0;
 
     color: white;
-    background-color: rgb(99, 127, 131);
+    @include bg-color($some-color);
 }
 
 .footer__mailing-container {
     padding-bottom: 50px;
 
-    background-color: rgb(99, 127, 131);
+    @include bg-color($some-color);
 }
 
 .footer__social-container {
@@ -23,5 +29,5 @@
 .footer__copyright-container {
     padding: 40px 0;
 
-    background-color: rgb(99, 127, 131);
+    @include bg-color($some-color);
 }
