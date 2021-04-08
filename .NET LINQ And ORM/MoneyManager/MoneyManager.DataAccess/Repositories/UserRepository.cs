@@ -8,7 +8,7 @@ namespace MoneyManager.DataAccess.Repositories
 {
     public class UserRepository : IRepository<User>
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public UserRepository(AppDbContext context)
         {

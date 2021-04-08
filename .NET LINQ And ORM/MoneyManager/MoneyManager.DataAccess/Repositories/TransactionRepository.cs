@@ -8,7 +8,7 @@ namespace MoneyManager.DataAccess.Repositories
 {
     public class TransactionRepository : IRepository<Transaction>
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public TransactionRepository(AppDbContext context)
         {

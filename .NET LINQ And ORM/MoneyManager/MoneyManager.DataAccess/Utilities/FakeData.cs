@@ -7,22 +7,22 @@ namespace MoneyManager.DataAccess.Utilities
 {
     public static class FakeData
     {
-        public static List<Transaction> Transactions = new List<Transaction>();
-        public static List<Category> Categories = new List<Category>();
-        public static List<Asset> Assets = new List<Asset>();
-        public static List<User> Users = new List<User>();
+        public static readonly List<Transaction> Transactions = new List<Transaction>();
+        public static readonly List<Category> Categories = new List<Category>();
+        public static readonly List<Asset> Assets = new List<Asset>();
+        public static readonly List<User> Users = new List<User>();
 
         private static Faker _f;
-        private static string[][] _assetNames =
+        private static readonly string[][] _assetNames =
         {
             new string[] { "debit cards", "bank account", "loan" },
             new string[] { "cash", "bank account", "loan" },
             new string[] { "cash", "debit cards", "loan" },
             new string[] { "cash", "bank account", "debit cards" }
         };
-        private static string[] _categoryNames = { "Food", "Transportation", "Salary", "Bonus" };
-        private static CategoryType[] _categoryTypes = { CategoryType.Expense, CategoryType.Expense, CategoryType.Income, CategoryType.Income };
-        private static string[][] _subcategoryNames =
+        private static readonly string[] _categoryNames = { "Food", "Transportation", "Salary", "Bonus" };
+        private static readonly CategoryType[] _categoryTypes = { CategoryType.Expense, CategoryType.Expense, CategoryType.Income, CategoryType.Income };
+        private static readonly string[][] _subcategoryNames =
         {
             new string[] { "Grocery", "Street food", "Coffe" },
             new string[] { "Taxi", "Public transport", "Parking" }

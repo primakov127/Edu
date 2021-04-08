@@ -8,7 +8,7 @@ namespace MoneyManager.DataAccess.Repositories
 {
     public class CategoryRepository : IRepository<Category>
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public CategoryRepository(AppDbContext context)
         {
