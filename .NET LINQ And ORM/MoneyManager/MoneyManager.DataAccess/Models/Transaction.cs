@@ -9,7 +9,7 @@ namespace MoneyManager.DataAccess.Models
         public Decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public Guid AssetId { get; set; }
-        public String Comment { get; set; }
+        public string Comment { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Asset Asset { get; set; }

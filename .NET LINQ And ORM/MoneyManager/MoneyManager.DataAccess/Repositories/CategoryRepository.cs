@@ -2,6 +2,7 @@
 using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.SeedWork;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MoneyManager.DataAccess.Repositories
@@ -42,6 +43,11 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 _context.Categories.Remove(category);
             }
+        }
+
+        public void Delete(IEnumerable<Category> items)
+        {
+            _context.Categories.RemoveRange(items);
         }
     }
 }

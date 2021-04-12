@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoneyManager.DataAccess.Extensions;
 using MoneyManager.DataAccess.Models;
+using System;
 
 namespace MoneyManager.DataAccess.Contexts
 {
@@ -8,7 +9,7 @@ namespace MoneyManager.DataAccess.Contexts
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
-            this.Database.Migrate();
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Transaction> Transactions { get; set; }
@@ -24,6 +25,13 @@ namespace MoneyManager.DataAccess.Contexts
             modelBuilder.Entity<Category>().HasIndex(c => c.Name).IsUnique();
             modelBuilder.Entity<Category>().Property(c => c.Type).HasConversion<int>().IsRequired();
             modelBuilder.Entity<Category>().Property(c => c.ParentId).HasColumnType("uniqueidentifier").IsRequired(false);
+            modelBuilder.Entity<Category>().Property(c => c.Color)
+                .HasColumnType("int")
+                .HasConversion(
+                    v => Int32.Parse(v.Replace("#", String.Empty), System.Globalization.NumberStyles.HexNumber),
+                    v => $"#{v:X}")
+                .HasDefaultValue("#233D4D")
+                .IsRequired();
 
             modelBuilder.Entity<Asset>().ToTable("Asset");
             modelBuilder.Entity<Asset>().Property(a => a.Id).HasColumnType("uniqueidentifier").IsRequired();

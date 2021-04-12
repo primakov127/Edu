@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Hosting;
-using MoneyManager.DataAccess;
-using MoneyManager.DataAccess.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using MoneyManager.DataServices.SeedWork;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,17 +7,21 @@ namespace MoneyManager.App
 {
     public class StartService : IHostedService
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUserService _userService;
+        private readonly IAssetService _assetService;
+        private readonly ITransactionService _transactionService;
+        private readonly ICategoryService _categoryService;
 
-        public StartService(AppDbContext context)
+        public StartService(IUserService userService, IAssetService assetService, ITransactionService transactionService, ICategoryService categoryService)
         {
-            _unitOfWork = new UnitOfWork(context);
+            _userService = userService;
+            _assetService = assetService;
+            _transactionService = transactionService;
+            _categoryService = categoryService;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            //Console.WriteLine(_context.Users.First().Name);
-            Console.WriteLine(_unitOfWork.Users.GetAll().Count());
             return Task.CompletedTask;
         }
 

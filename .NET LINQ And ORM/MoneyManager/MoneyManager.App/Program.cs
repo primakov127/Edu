@@ -2,8 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MoneyManager.DataAccess;
 using MoneyManager.DataAccess.Contexts;
-using System;
+using MoneyManager.DataAccess.SeedWork;
+using MoneyManager.DataServices.SeedWork;
+using MoneyManager.DataServices.Services;
 using System.IO;
 
 namespace MoneyManager.App
@@ -28,8 +31,13 @@ namespace MoneyManager.App
                 .AddDbContext<AppDbContext>(options =>
                 {
                     options.UseSqlServer(host.Configuration.GetConnectionString("DefaultConnection"));
-                }, ServiceLifetime.Singleton)
-                .AddHostedService<StartService>();
+                }, ServiceLifetime.Scoped)
+                .AddHostedService<StartService>()
+                .AddScoped<UnitOfWorkBase, UnitOfWork>()
+                .AddScoped<IUserService, UserService>()
+                .AddScoped<IAssetService, AssetService>()
+                .AddScoped<ITransactionService, TransactionService>()
+                .AddScoped<ICategoryService, CategoryService>();
         }
 
         static IHostBuilder CreateHostBuilder(string[] args)

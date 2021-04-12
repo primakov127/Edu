@@ -1,22 +1,20 @@
 ﻿using MoneyManager.DataAccess.Contexts;
+using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.Repositories;
+using MoneyManager.DataAccess.SeedWork;
 
 namespace MoneyManager.DataAccess
 {
-    public class UnitOfWork
+    public class UnitOfWork : UnitOfWorkBase
     {
-        private AppDbContext _context;
-        private UserRepository _userRepository;
-        private AssetRepository _assetRepository;
-        private CategoryRepository _categoryRepository;
-        private TransactionRepository _transactionRepository;
+        private IRepository<User> _userRepository;
+        private IRepository<Asset> _assetRepository;
+        private IRepository<Category> _categoryRepository;
+        private IRepository<Transaction> _transactionRepository;
 
-        public UnitOfWork(AppDbContext context)
-        {
-            _context = context;
-        }
+        public UnitOfWork(AppDbContext context) : base(context) { }
 
-        public UserRepository Users
+        public override IRepository<User> Users
         {
             get
             {
@@ -28,7 +26,7 @@ namespace MoneyManager.DataAccess
             }
         }
 
-        public AssetRepository Assets
+        public override IRepository<Asset> Assets
         {
             get
             {
@@ -40,7 +38,7 @@ namespace MoneyManager.DataAccess
             }
         }
 
-        public CategoryRepository Categories
+        public override IRepository<Category> Categories
         {
             get
             {
@@ -52,7 +50,7 @@ namespace MoneyManager.DataAccess
             }
         }
 
-        public TransactionRepository Transactions
+        public override IRepository<Transaction> Transactions
         {
             get
             {
@@ -64,7 +62,7 @@ namespace MoneyManager.DataAccess
             }
         }
 
-        public void Save()
+        public override void Save()
         {
             _context.SaveChanges();
         }
