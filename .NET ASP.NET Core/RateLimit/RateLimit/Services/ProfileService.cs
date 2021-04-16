@@ -1,4 +1,5 @@
 ﻿using RateLimit.DataAccess.SeedWork;
+using RateLimit.DataTransferObjects;
 using RateLimit.Models;
 using RateLimit.SeedWork;
 using System;
@@ -17,30 +18,31 @@ namespace RateLimit.Services
             _profileRepository = profileRepository;
         }
 
-        public IEnumerable<ProfileViewModel> GetProfiles<TKey>(int pageSize, int pageNum, string filter, Func<ProfileViewModel, TKey> keySelector)
+        public IEnumerable<ProfileDTO> GetProfiles<TKey>(int pageSize, int pageNumber, string filter, Func<ProfileDTO, TKey> keySelector)
         {
+            var lowerFilter = filter.ToLower();
             return _profileRepository
                 .GetAll()
-                .Skip(pageNum * pageSize)
-                .Take(pageSize)
-                .Where(p => p.FirstName.ToLower().Contains(filter) || p.LastName.ToLower().Contains(filter))
-                .Select(p => new ProfileViewModel
+                .Where(p => p.FirstName.ToLower().Contains(lowerFilter) || p.LastName.ToLower().Contains(lowerFilter))
+                .Select(p => new ProfileDTO
                 {
                     Id = p.Id,
                     FirstName = p.FirstName,
                     LastName = p.LastName,
                     Birthday = p.Birthday
                 })
-                .OrderBy(keySelector);
+                .OrderBy(keySelector)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
         }
 
-        public IEnumerable<ProfileViewModel> GetPagedProfiles(int pageSize, int pageNum)
+        public IEnumerable<ProfileDTO> GetPagedProfiles(int pageSize, int pageNumber)
         {
             return _profileRepository
                 .GetAll()
-                .Skip(pageNum * pageSize)
+                .Skip(pageNumber * pageSize)
                 .Take(pageSize)
-                .Select(p => new ProfileViewModel
+                .Select(p => new ProfileDTO
                 {
                     Id = p.Id,
                     FirstName = p.FirstName,
@@ -49,13 +51,13 @@ namespace RateLimit.Services
                 });
         }
 
-        public IEnumerable<ProfileViewModel> GetProfilesFilteredBy(string filter)
+        public IEnumerable<ProfileDTO> GetProfilesFilteredBy(string filter)
         {
             var lowerFilter = filter.ToLower();
             return _profileRepository
                 .GetAll()
                 .Where(p => p.FirstName.ToLower().Contains(lowerFilter) || p.LastName.ToLower().Contains(lowerFilter))
-                .Select(p => new ProfileViewModel
+                .Select(p => new ProfileDTO
                 {
                     Id = p.Id,
                     FirstName = p.FirstName,
@@ -64,11 +66,11 @@ namespace RateLimit.Services
                 });
         }
 
-        public IEnumerable<ProfileViewModel> GetProfilesSortedBy<TKey>(Func<ProfileViewModel, TKey> func)
+        public IEnumerable<ProfileDTO> GetProfilesSortedBy<TKey>(Func<ProfileDTO, TKey> func)
         {
             return _profileRepository
                 .GetAll()
-                .Select(p => new ProfileViewModel 
+                .Select(p => new ProfileDTO
                 {
                     Id = p.Id,
                     FirstName = p.FirstName,
@@ -76,6 +78,13 @@ namespace RateLimit.Services
                     Birthday = p.Birthday
                 })
                 .OrderBy(func);
+        }
+
+        public int GetFilteredProfilesCount(string filter)
+        {
+            return _profileRepository
+                .GetAll().Where(p => p.FirstName.ToLower().Contains(filter) || p.LastName.ToLower().Contains(filter))
+                .Count();
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RateLimit.Models
+namespace RateLimit.DataTransferObjects
 {
-    public class ProfileViewModel
+    public class ProfileDTO
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

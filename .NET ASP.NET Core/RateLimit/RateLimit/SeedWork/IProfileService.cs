@@ -1,4 +1,5 @@
-﻿using RateLimit.Models;
+﻿using RateLimit.DataTransferObjects;
+using RateLimit.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,10 @@ namespace RateLimit.SeedWork
 {
     public interface IProfileService
     {
-        IEnumerable<ProfileViewModel> GetProfilesSortedBy<TKey>(Func<ProfileViewModel, TKey> func);
-        IEnumerable<ProfileViewModel> GetProfilesFilteredBy(string filter);
-        IEnumerable<ProfileViewModel> GetPagedProfiles(int pageSize, int pageNum);
-        IEnumerable<ProfileViewModel> GetProfiles<TKey>(int pageSize, int pageNum, string filter, Func<ProfileViewModel, TKey> keySelector);
+        IEnumerable<ProfileDTO> GetProfilesSortedBy<TKey>(Func<ProfileDTO, TKey> func);
+        IEnumerable<ProfileDTO> GetProfilesFilteredBy(string filter);
+        IEnumerable<ProfileDTO> GetPagedProfiles(int pageSize, int pageNumber);
+        IEnumerable<ProfileDTO> GetProfiles<TKey>(int pageSize, int pageNumber, string filter, Func<ProfileDTO, TKey> keySelector);
+        int GetFilteredProfilesCount(string filter);
     }
 }
