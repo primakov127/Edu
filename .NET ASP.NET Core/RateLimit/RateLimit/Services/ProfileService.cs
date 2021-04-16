@@ -18,11 +18,12 @@ namespace RateLimit.Services
             _profileRepository = profileRepository;
         }
 
-        public IEnumerable<ProfileDTO> GetProfiles<TKey>(int pageSize, int pageNumber, string filter, Func<ProfileDTO, TKey> keySelector)
+        public async Task<IEnumerable<ProfileDTO>> GetProfiles<TKey>(int pageSize, int pageNumber, string filter, Func<ProfileDTO, TKey> keySelector)
         {
             var lowerFilter = filter.ToLower();
-            return _profileRepository
-                .GetAll()
+            var profiles = await _profileRepository.GetAllAsync();
+
+            return profiles
                 .Where(p => p.FirstName.ToLower().Contains(lowerFilter) || p.LastName.ToLower().Contains(lowerFilter))
                 .Select(p => new ProfileDTO
                 {
@@ -36,10 +37,11 @@ namespace RateLimit.Services
                 .Take(pageSize);
         }
 
-        public IEnumerable<ProfileDTO> GetPagedProfiles(int pageSize, int pageNumber)
+        public async Task<IEnumerable<ProfileDTO>> GetPagedProfiles(int pageSize, int pageNumber)
         {
-            return _profileRepository
-                .GetAll()
+            var profiles = await _profileRepository.GetAllAsync();
+
+            return profiles
                 .Skip(pageNumber * pageSize)
                 .Take(pageSize)
                 .Select(p => new ProfileDTO
@@ -51,11 +53,12 @@ namespace RateLimit.Services
                 });
         }
 
-        public IEnumerable<ProfileDTO> GetProfilesFilteredBy(string filter)
+        public async Task<IEnumerable<ProfileDTO>> GetProfilesFilteredBy(string filter)
         {
             var lowerFilter = filter.ToLower();
-            return _profileRepository
-                .GetAll()
+            var profiles = await _profileRepository.GetAllAsync();
+
+            return profiles
                 .Where(p => p.FirstName.ToLower().Contains(lowerFilter) || p.LastName.ToLower().Contains(lowerFilter))
                 .Select(p => new ProfileDTO
                 {
@@ -66,10 +69,11 @@ namespace RateLimit.Services
                 });
         }
 
-        public IEnumerable<ProfileDTO> GetProfilesSortedBy<TKey>(Func<ProfileDTO, TKey> func)
+        public async Task<IEnumerable<ProfileDTO>> GetProfilesSortedBy<TKey>(Func<ProfileDTO, TKey> func)
         {
-            return _profileRepository
-                .GetAll()
+            var profiles = await _profileRepository.GetAllAsync();
+
+            return profiles
                 .Select(p => new ProfileDTO
                 {
                     Id = p.Id,
@@ -80,10 +84,12 @@ namespace RateLimit.Services
                 .OrderBy(func);
         }
 
-        public int GetFilteredProfilesCount(string filter)
+        public async Task<int> GetFilteredProfilesCount(string filter)
         {
-            return _profileRepository
-                .GetAll().Where(p => p.FirstName.ToLower().Contains(filter) || p.LastName.ToLower().Contains(filter))
+            var profiles = await _profileRepository.GetAllAsync();
+
+            return profiles
+                .Where(p => p.FirstName.ToLower().Contains(filter) || p.LastName.ToLower().Contains(filter))
                 .Count();
         }
     }

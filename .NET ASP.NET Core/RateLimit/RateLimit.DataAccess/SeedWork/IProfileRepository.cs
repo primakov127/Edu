@@ -9,6 +9,6 @@ namespace RateLimit.DataAccess.SeedWork
 {
     public interface IProfileRepository
     {
-        IEnumerable<Profile> GetAll();
+        Task<IEnumerable<Profile>> GetAllAsync();
     }
 }

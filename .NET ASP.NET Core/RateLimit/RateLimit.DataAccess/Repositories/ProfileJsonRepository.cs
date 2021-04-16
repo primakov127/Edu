@@ -14,16 +14,26 @@ namespace RateLimit.DataAccess.Repositories
     {
         private readonly string _json;
         private readonly IEnumerable<Profile> _profiles;
+        private readonly string _jsonFilePath;
 
         public ProfileJsonRepository(string jsonFilePath)
         {
-            _json = File.ReadAllText(jsonFilePath);
-            _profiles = JsonConvert.DeserializeObject<IEnumerable<Profile>>(_json);
+            _jsonFilePath = jsonFilePath;
         }
 
-        public IEnumerable<Profile> GetAll()
+        public async Task<IEnumerable<Profile>> GetAllAsync()
         {
-            return _profiles;
+            using (var fileStream = new FileStream(_jsonFilePath, FileMode.OpenOrCreate))
+            {
+                var readBytes = new Byte[fileStream.Length];
+
+                await fileStream.ReadAsync(readBytes);
+
+                var json = Encoding.UTF8.GetString(readBytes);
+                var profiles = JsonConvert.DeserializeObject<IEnumerable<Profile>>(json);
+
+                return profiles;
+            }
         }
     }
 }

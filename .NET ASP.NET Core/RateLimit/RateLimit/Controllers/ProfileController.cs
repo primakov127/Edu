@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace RateLimit.Controllers
@@ -23,7 +24,7 @@ namespace RateLimit.Controllers
             _profileService = profileService;
         }
 
-        public IActionResult Index(string sortOrder, string searchString, int pageNumber = 1)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, int pageNumber = 1)
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["CurrentFilter"] = searchString;
@@ -34,21 +35,21 @@ namespace RateLimit.Controllers
             {
                 searchString = String.Empty;
             }
-
+            
             switch (sortOrder)
             {
                 default:
                 case "FirstName":
-                    profiles = _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.FirstName);
+                    profiles = await _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.FirstName);
                     break;
                 case "LastName":
-                    profiles = _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.LastName);
+                    profiles = await _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.LastName);
                     break;
                 case "Birthday":
-                    profiles = _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.Birthday);
+                    profiles = await _profileService.GetProfiles(pageSize, pageNumber, searchString, e => e.Birthday);
                     break;
             }
-            profilesCount = _profileService.GetFilteredProfilesCount(searchString);
+            profilesCount = await _profileService.GetFilteredProfilesCount(searchString);
 
             return View("Profile", new ProfileListViewModel(profiles, profilesCount, pageNumber, pageSize));
         }
