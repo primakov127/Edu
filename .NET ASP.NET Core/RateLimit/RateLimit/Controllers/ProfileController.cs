@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RateLimit.Attributes;
 using RateLimit.DataAccess.Repositories;
 using RateLimit.DataAccess.SeedWork;
 using RateLimit.DataTransferObjects;
@@ -24,6 +25,7 @@ namespace RateLimit.Controllers
             _profileService = profileService;
         }
 
+        [RequestRateLimit(5)]
         public async Task<IActionResult> Index(string sortOrder, string searchString, int pageNumber = 1)
         {
             ViewData["CurrentSort"] = sortOrder;

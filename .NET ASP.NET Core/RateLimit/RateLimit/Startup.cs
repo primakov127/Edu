@@ -28,8 +28,8 @@ namespace RateLimit
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IProfileRepository, ProfileJsonRepository>(_ => new ProfileJsonRepository(Configuration.GetSection("JsonDataPath").Value));
-            services.AddScoped<IProfileService, ProfileService>();
+            services.AddSingleton<IProfileRepository, ProfileJsonRepository>(_ => new ProfileJsonRepository(Configuration.GetSection("JsonDataPath").Value));
+            services.AddSingleton<IProfileService, ProfileService>();
             services.AddControllersWithViews();
         }
 
