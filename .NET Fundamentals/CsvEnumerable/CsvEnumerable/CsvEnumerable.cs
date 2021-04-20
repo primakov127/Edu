@@ -17,16 +17,17 @@ namespace CsvEnumerable
 
         public IEnumerator<T> GetEnumerator()
         {
-            var reader = new StreamReader(_filePath);
-            var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-
-            foreach (var record in csv.GetRecords<T>())
+            using (var reader = new StreamReader(_filePath))
             {
-                yield return record;
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    foreach (var record in csv.GetRecords<T>())
+                    {
+                        yield return record;
+                    }
+                }
             }
-
-            csv.Dispose();
-            reader.Dispose();
+            
         }
 
         IEnumerator IEnumerable.GetEnumerator()
