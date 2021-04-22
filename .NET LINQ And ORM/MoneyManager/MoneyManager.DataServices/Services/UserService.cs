@@ -11,16 +11,18 @@ namespace MoneyManager.DataServices.Services
 {
     public class UserService : IUserService
     {
-        private readonly UnitOfWorkBase _unitOfWork;
+        private readonly IUserRepository _userRepository;
+        private readonly ITransactionRepository _transactionRepository;
 
-        public UserService(UnitOfWorkBase unitOfWork)
+        public UserService(IUserRepository userRepository, ITransactionRepository transactionRepository)
         {
-            _unitOfWork = unitOfWork;
+            _userRepository = userRepository;
+            _transactionRepository = transactionRepository;
         }
 
         public UserDTO GetUser(string email)
         {
-            return _unitOfWork.Users
+            return _userRepository
                 .GetAll()
                 .Where(u => u.Email.Equals(email))
                 .Select(u => new UserDTO
@@ -36,7 +38,7 @@ namespace MoneyManager.DataServices.Services
 
         public IEnumerable<UserInformationDTO> GetUsersInformationSortedByName()
         {
-            return _unitOfWork.Users
+            return _userRepository
                 .GetAll()
                 .Select(u => new UserInformationDTO
                 {
@@ -49,19 +51,20 @@ namespace MoneyManager.DataServices.Services
 
         public UserBalanceInformationDTO GetUserBalanceInformation(Guid userId)
         {
-            var user = _unitOfWork.Users.Get(userId);
+            var user = _userRepository.Get(userId);
             if (user == null)
             {
                 throw new ArgumentException($"There is no user with {userId} Id.");
             }
 
-            var userTransactions = _unitOfWork.Transactions.GetAll().Include(t => t.Asset).Include(t => t.Category).Where(t => t.Asset.UserId == user.Id);
+            var userTransactions = _transactionRepository.GetAll().Include(t => t.Asset).Include(t => t.Category).Where(t => t.Asset.UserId == user.Id);
 
             decimal balance = 0;
             foreach (var transaction in userTransactions)
             {
                 if (transaction.Category.Type == CategoryType.Expense)
                 {
+                    //SUM
                     balance = balance - transaction.Amount;
                 }
                 else if (transaction.Category.Type == CategoryType.Income)

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MoneyManager.DataAccess.Repositories
 {
-    public class TransactionRepository : IRepository<Transaction>
+    public class TransactionRepository : ITransactionRepository
     {
         private readonly AppDbContext _context;
 

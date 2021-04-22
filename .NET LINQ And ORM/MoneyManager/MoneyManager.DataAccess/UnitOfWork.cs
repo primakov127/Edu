@@ -5,64 +5,16 @@ using MoneyManager.DataAccess.SeedWork;
 
 namespace MoneyManager.DataAccess
 {
-    public class UnitOfWork : UnitOfWorkBase
+    public class UnitOfWork
     {
-        private IRepository<User> _userRepository;
-        private IRepository<Asset> _assetRepository;
-        private IRepository<Category> _categoryRepository;
-        private IRepository<Transaction> _transactionRepository;
+        private readonly AppDbContext _context;
 
-        public UnitOfWork(AppDbContext context) : base(context) { }
-
-        public override IRepository<User> Users
+        public UnitOfWork(AppDbContext context)
         {
-            get
-            {
-                if (_userRepository == null)
-                {
-                    _userRepository = new UserRepository(_context);
-                }
-                return _userRepository;
-            }
+            _context = context;
         }
 
-        public override IRepository<Asset> Assets
-        {
-            get
-            {
-                if (_assetRepository == null)
-                {
-                    _assetRepository = new AssetRepository(_context);
-                }
-                return _assetRepository;
-            }
-        }
-
-        public override IRepository<Category> Categories
-        {
-            get
-            {
-                if (_categoryRepository == null)
-                {
-                    _categoryRepository = new CategoryRepository(_context);
-                }
-                return _categoryRepository;
-            }
-        }
-
-        public override IRepository<Transaction> Transactions
-        {
-            get
-            {
-                if (_transactionRepository == null)
-                {
-                    _transactionRepository = new TransactionRepository(_context);
-                }
-                return _transactionRepository;
-            }
-        }
-
-        public override void Save()
+        public void Save()
         {
             _context.SaveChanges();
         }

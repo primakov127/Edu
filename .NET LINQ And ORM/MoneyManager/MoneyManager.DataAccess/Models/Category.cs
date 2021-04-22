@@ -15,10 +15,4 @@ namespace MoneyManager.DataAccess.Models
         public virtual ICollection<Category> Subcategories { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
     }
-
-    public enum CategoryType
-    {
-        Expense,
-        Income
-    }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MoneyManager.DataAccess;
 using MoneyManager.DataAccess.Models;
 using MoneyManager.DataAccess.SeedWork;
 using MoneyManager.DataServices.DataTransferObjects;
@@ -11,30 +12,33 @@ namespace MoneyManager.DataServices.Services
 {
     public class TransactionService : ITransactionService
     {
-        private readonly UnitOfWorkBase _unitOfWork;
+        private readonly ITransactionRepository _transactionRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly UnitOfWork _unitOfWork;
 
-        public TransactionService(UnitOfWorkBase unitOfWork)
+        public TransactionService(ITransactionRepository transactionRepository, IUserRepository userRepository)
         {
-            _unitOfWork = unitOfWork;
+            _transactionRepository = transactionRepository;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<TransactionInformationDTO> GetUserTransactionsInformation(Guid userId)
         {
-            var user = _unitOfWork.Users.Get(userId);
+            var user = _userRepository.Get(userId);
             if (user == null)
             {
                 throw new ArgumentException($"There is no user with {userId} Id.");
             }
 
-            var userTransactions = _unitOfWork.Transactions
+            var userTransactions = _transactionRepository
                 .GetAll()
                 .Include(t => t.Asset)
                 .Include(t => t.Category)
                     .ThenInclude(t => t.Parent)
                 .Where(t => t.Asset.UserId == user.Id)
                 .OrderByDescending(t => t.Date)
-                .OrderBy(t => t.Asset.Name)
-                .OrderBy(t => t.Category.Name);
+                .ThenBy(t => t.Asset.Name)
+                .ThenBy(t => t.Category.Name);
 
             var result = userTransactions.Select(t => new TransactionInformationDTO
             {
@@ -51,18 +55,17 @@ namespace MoneyManager.DataServices.Services
 
         public IEnumerable<TotalIncomeAndExpensesDTO> GetUserPeriodIncomeAndExpenses(Guid userId, DateTime startDate, DateTime endDate)
         {
-            var user = _unitOfWork.Users.Get(userId);
+            var user = _userRepository.Get(userId);
             if (user == null)
             {
                 throw new ArgumentException($"There is no user with {userId} Id.");
             }
 
-            var userTransactions = _unitOfWork.Transactions
+            var userTransactions = _transactionRepository
                 .GetAll()
                 .Include(t => t.Category)
                 .Include(t => t.Asset)
-                .Where(t => t.Asset.UserId == user.Id)
-                .Where(t => t.Date >= startDate && t.Date <= endDate)
+                .Where(t => t.Asset.UserId == user.Id && t.Date >= startDate && t.Date <= endDate)
                 .OrderBy(t => t.Date)
                 .AsEnumerable();
             var userTransactionsGroupedByMonthAndYear = userTransactions.GroupBy(t => new { t.Date.Year, t.Date.Month });
@@ -98,13 +101,12 @@ namespace MoneyManager.DataServices.Services
 
         public void DeleteUserCurrentMonthTransactions(Guid userId)
         {
-            var transactions = _unitOfWork.Transactions
+            var transactions = _transactionRepository
                 .GetAll()
                 .Include(t => t.Asset)
-                .Where(t => t.Asset.UserId == userId)
-                .Where(t => t.Date.Month == DateTime.Now.Month);
+                .Where(t => t.Asset.UserId == userId && t.Date.Month == DateTime.Now.Month);
 
-            _unitOfWork.Transactions.Delete(transactions);
+            _transactionRepository.Delete(transactions);
             _unitOfWork.Save();
         }
     }

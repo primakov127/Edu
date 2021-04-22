@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MoneyManager.DataAccess;
 using MoneyManager.DataAccess.Contexts;
+using MoneyManager.DataAccess.Repositories;
 using MoneyManager.DataAccess.SeedWork;
 using MoneyManager.DataServices.SeedWork;
 using MoneyManager.DataServices.Services;
@@ -33,7 +34,11 @@ namespace MoneyManager.App
                     options.UseSqlServer(host.Configuration.GetConnectionString("DefaultConnection"));
                 }, ServiceLifetime.Scoped)
                 .AddHostedService<StartService>()
-                .AddScoped<UnitOfWorkBase, UnitOfWork>()
+                .AddScoped<UnitOfWork>()
+                .AddScoped<IUserRepository, UserRepository>()
+                .AddScoped<IAssetRepository, AssetRepository>()
+                .AddScoped<ITransactionRepository, TransactionRepository>()
+                .AddScoped<ICategoryRepository, CategoryRepository>()
                 .AddScoped<IUserService, UserService>()
                 .AddScoped<IAssetService, AssetService>()
                 .AddScoped<ITransactionService, TransactionService>()

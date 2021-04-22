@@ -11,22 +11,24 @@ namespace MoneyManager.DataServices.Services
 {
     public class AssetService : IAssetService
     {
-        private readonly UnitOfWorkBase _unitOfWork;
+        private readonly IAssetRepository _assetRepository;
+        private readonly IUserRepository _userRepository;
 
-        public AssetService(UnitOfWorkBase unitOfWork)
+        public AssetService(IAssetRepository assetRepository, IUserRepository userRepository)
         {
-            _unitOfWork = unitOfWork;
+            _assetRepository = assetRepository;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<AssetBalanceInformationDTO> GetUserAssetsBalanceInformation(Guid userId)
         {
-            var user = _unitOfWork.Users.Get(userId);
+            var user = _userRepository.Get(userId);
             if (user == null)
             {
                 throw new ArgumentException($"There is no user with {userId} Id.");
             }
 
-            var userAssets = _unitOfWork.Assets.GetAll().Where(a => a.UserId == user.Id).Include(a => a.Transactions).ThenInclude(t => t.Category);
+            var userAssets = _assetRepository.GetAll().Where(a => a.UserId == user.Id).Include(a => a.Transactions).ThenInclude(t => t.Category);
 
             var result = new List<AssetBalanceInformationDTO>();
             foreach (var asset in userAssets)

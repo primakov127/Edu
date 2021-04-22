@@ -11,22 +11,24 @@ namespace MoneyManager.DataServices.Services
 {
     public class CategoryService : ICategoryService
     {
-        private UnitOfWorkBase _unitOfWork;
+        private ICategoryRepository _categoryRepository;
+        private IUserRepository _userRepository;
 
-        public CategoryService(UnitOfWorkBase unitOfWork)
+        public CategoryService(ICategoryRepository categoryRepository, IUserRepository userRepository)
         {
-            _unitOfWork = unitOfWork;
+            _categoryRepository = categoryRepository;
+            _userRepository = userRepository;
         }
 
         public IEnumerable<CategoryAmountInformationDTO> GetUserCategoriesAmountInformationByType(Guid userId, CategoryType categoryType)
         {
-            var user = _unitOfWork.Users.Get(userId);
+            var user = _userRepository.Get(userId);
             if (user == null)
             {
                 throw new ArgumentException($"There is no user with {userId} Id.");
             }
 
-            var userCategories = _unitOfWork.Categories
+            var userCategories = _categoryRepository
                 .GetAll()
                 .Include(c => c.Transactions.Where(t => t.Asset.UserId == user.Id))
                 .Where(c => c.Type == categoryType).AsEnumerable();

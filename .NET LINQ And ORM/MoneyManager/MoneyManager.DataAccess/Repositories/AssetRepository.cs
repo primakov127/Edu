@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MoneyManager.DataAccess.Repositories
 {
-    public class AssetRepository : IRepository<Asset>
+    public class AssetRepository : IAssetRepository
     {
         private readonly AppDbContext _context;
 
@@ -43,11 +43,6 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 _context.Assets.Remove(asset);
             }
-        }
-
-        public void Delete(IEnumerable<Asset> items)
-        {
-            _context.Assets.RemoveRange(items);
         }
     }
 }

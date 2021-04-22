@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MoneyManager.DataAccess.Repositories
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
 
@@ -43,11 +43,6 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 _context.Users.Remove(user);
             }
-        }
-
-        public void Delete(IEnumerable<User> items)
-        {
-            _context.Users.RemoveRange(items);
         }
     }
 }

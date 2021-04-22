@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MoneyManager.DataAccess.Repositories
 {
-    public class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly AppDbContext _context;
 
@@ -43,11 +43,6 @@ namespace MoneyManager.DataAccess.Repositories
             {
                 _context.Categories.Remove(category);
             }
-        }
-
-        public void Delete(IEnumerable<Category> items)
-        {
-            _context.Categories.RemoveRange(items);
         }
     }
 }
