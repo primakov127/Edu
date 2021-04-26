@@ -19,6 +19,7 @@ CREATE TABLE [DrugUnits]
 (
 	[Id]			UNIQUEIDENTIFIER,
 	[Name]			NVARCHAR(64),
+	[Count]			INT,
 	[DrugTypeId]	INT,
 
 	PRIMARY KEY (Id),

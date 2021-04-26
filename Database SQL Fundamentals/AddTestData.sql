@@ -18,8 +18,10 @@ INSERT INTO [Users] (Id, FirstName, LastName, Email, Password, RoleId) VALUES ('
 INSERT INTO [Users] (Id, FirstName, LastName, Email, Password, RoleId) VALUES ('fb076836-fa93-437b-91e5-c819f005eadc', 'Ezechiel', 'Adamec', 'eadamech@diigo.com', 'hw160DgwIeck', 1);
 INSERT INTO [Users] (Id, FirstName, LastName, Email, Password, RoleId) VALUES ('0ffd9368-dfdc-4409-ab60-6d7ac8a114cc', 'Lorrin', 'Fibbitts', 'lfibbittsi@wikispaces.com', 'wj1du6aM4As', 1);
 INSERT INTO [Users] (Id, FirstName, LastName, Email, Password, RoleId) VALUES ('10cea038-1645-4702-be7c-002f89654492', 'Carey', 'Prattin', 'cprattinj@virginia.edu', 'v9LE7A7yr', 3);
+INSERT INTO [Users] (Id, FirstName, LastName, Email, Password, RoleId) VALUES ('17ca2ded-94db-4ade-b718-f3e36d3b30f8', 'Maksim', 'Prymakou', 'primakov127@gmail.com', 'password', 3);
 
 
+INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, SelectedDrugTypeId, StatusId) VALUES ('a51fa494-e879-4b17-9194-fd85b9f0e116', 'Maksim', 'Primakov', '2001-05-08 05:43:08', 1, 3, 3);
 INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, SelectedDrugTypeId, StatusId) VALUES ('3fbfecd0-9206-4755-9a8e-5fdc4e43221e', 'Linc', 'Palomba', '1995-08-02 05:43:08', 1, 3, 3);
 INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, SelectedDrugTypeId, StatusId) VALUES ('87660ad3-4964-43b9-a06a-eb4bdc520066', 'Conny', 'Yakutin', '1995-05-16 09:20:59', 3, 1, 2);
 INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, SelectedDrugTypeId, StatusId) VALUES ('f76b496a-3231-4420-aebd-3dba95b7bb3f', 'Torey', 'Pynn', '1976-12-14 22:16:53', 1, 3, 3);
@@ -72,36 +74,37 @@ INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, Selected
 INSERT INTO [Patients] (Id, FirstName, LastName, DateOfBirth, GenderId, SelectedDrugTypeId, StatusId) VALUES ('05c89adf-6867-4a9d-9b34-3ec6ac173325', 'Hope', 'Alster', '1988-09-02 15:12:28', 1, 1, 4);
 
 
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('b1cbb06e-558a-46b5-baca-b9a583cb5c8d', 'Risperidone', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('e2b009fe-ffca-4bdd-be5d-16fffb7fd857', 'testosterone', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('62f27032-c3f7-4c4b-ac8a-5b744ddc68cb', 'rizatriptan benzoate', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('dcc4ea39-fcae-4d77-8dc9-8c4fc4ef39d7', 'Alcohol', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('a86c5a18-f7f2-4795-a2f2-b72b5fd0b2de', 'Oxymetazoline Hydrochloride', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('32b3324e-fcf4-4647-ad20-8019bcc505ff', 'Clonidine Hydrochloride', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('7ddf5c0f-8a69-4138-947f-16b66c122ad3', 'PIPERACILLIN SODIUM and TAZOBACTAM SODIUM', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('8c240292-7ed2-4aa2-966c-78d5dc7205f3', 'NALOXONE HYDROCHLORIDE', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('6faab940-74c7-4c03-a53d-79445e9e41f9', 'TITANIUM DIOXIDE, OCTINOXATE', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('51c5c2f0-beee-4541-bedf-07245b07ed8f', 'Levetiracetam', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('91739457-d86d-477e-aab5-06f3e5eec22a', 'Carbidopa and Levodopa', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('2d4db14a-1184-43b8-b1eb-2d5cb8362b09', 'Diclofenac Sodium', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('3bbd0a9c-b40e-4838-a995-3f6ab445b99b', 'Amlodipine Besylate', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('7047e60c-6e31-4985-9ba8-808cea0bee0e', 'rosiglitazone maleate and metformin hydrochloride', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('52cbf638-80f0-427b-9240-e811c933b1b0', 'apple', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('2641080c-36d1-4687-b03b-ddb0bfb6f21b', 'Citalopram Hydrobromide', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('faa5a5fc-6333-4fa6-b81e-8ce988c30549', 'Quetiapine Fumarate', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('cf011d7f-d7c8-4298-95d7-f40dbbf14db7', 'Acyclovir', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('9b4b42a7-4d8c-45bc-9c63-2354d637b323', 'etoposide phosphate', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('8f90afc9-092f-46e4-a88b-680e033e7510', 'Petrolatum', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('b1aa046d-0a69-4af2-81d2-20b512c18cab', 'Potassium Cation', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('2901b7c6-dec1-4d12-8284-518cda7c5a12', 'ALCOHOL', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('2776d6f5-264d-4c86-98c9-61e0195d34c1', 'Larynx Levisticum', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('4d761b8b-2efd-43be-a39f-cff2b97de32e', 'RISPERIDONE', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('4f5c56f2-183b-479f-ad7c-990d2c869481', 'NOT APPLICABLE', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('e8e091a2-a29f-429f-9c6a-0d193c10b43d', 'Loperamide Hydrochloride', 2);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('f95575fc-8086-4727-931e-b8059ea753ad', 'Omeprazole', 3);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('7acd5823-ff92-478c-9237-e993d5d15c57', 'White Petroleum', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('8008c5c7-8f53-4d68-82bd-27a7062d2a37', 'Ketoconazole', 1);
-INSERT INTO [DrugUnits] (Id, Name, DrugTypeId) VALUES ('d3ab87da-46e7-47aa-8ffa-4ac4443ceb63', 'Glyburide', 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('b1cbb06e-558a-46b5-baca-b9a583cb5c8d', 'Risperidone', 37, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('e2b009fe-ffca-4bdd-be5d-16fffb7fd857', 'testosterone', 12, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('62f27032-c3f7-4c4b-ac8a-5b744ddc68cb', 'rizatriptan benzoate', 52, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('dcc4ea39-fcae-4d77-8dc9-8c4fc4ef39d7', 'Alcohol', 11, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('a86c5a18-f7f2-4795-a2f2-b72b5fd0b2de', 'Oxymetazoline Hydrochloride', 86, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('32b3324e-fcf4-4647-ad20-8019bcc505ff', 'Clonidine Hydrochloride', 91, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('7ddf5c0f-8a69-4138-947f-16b66c122ad3', 'PIPERACILLIN SODIUM and TAZOBACTAM SODIUM', 22, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('8c240292-7ed2-4aa2-966c-78d5dc7205f3', 'NALOXONE HYDROCHLORIDE', 34, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('6faab940-74c7-4c03-a53d-79445e9e41f9', 'TITANIUM DIOXIDE, OCTINOXATE', 66, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('51c5c2f0-beee-4541-bedf-07245b07ed8f', 'Levetiracetam', 37, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('91739457-d86d-477e-aab5-06f3e5eec22a', 'Carbidopa and Levodopa', 5, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('2d4db14a-1184-43b8-b1eb-2d5cb8362b09', 'Diclofenac Sodium', 44, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('3bbd0a9c-b40e-4838-a995-3f6ab445b99b', 'Amlodipine Besylate', 17, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('7047e60c-6e31-4985-9ba8-808cea0bee0e', 'rosiglitazone maleate and metformin hydrochloride', 19, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('52cbf638-80f0-427b-9240-e811c933b1b0', 'apple', 85, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('2641080c-36d1-4687-b03b-ddb0bfb6f21b', 'Citalopram Hydrobromide', 69, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('faa5a5fc-6333-4fa6-b81e-8ce988c30549', 'Quetiapine Fumarate', 81, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('cf011d7f-d7c8-4298-95d7-f40dbbf14db7', 'Acyclovir', 96, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('9b4b42a7-4d8c-45bc-9c63-2354d637b323', 'etoposide phosphate', 31, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('8f90afc9-092f-46e4-a88b-680e033e7510', 'Petrolatum', 2, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('b1aa046d-0a69-4af2-81d2-20b512c18cab', 'Potassium Cation', 73, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('2901b7c6-dec1-4d12-8284-518cda7c5a12', 'ALCOHOL', 8, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('2776d6f5-264d-4c86-98c9-61e0195d34c1', 'Larynx Levisticum', 25, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('4d761b8b-2efd-43be-a39f-cff2b97de32e', 'RISPERIDONE', 62, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('4f5c56f2-183b-479f-ad7c-990d2c869481', 'NOT APPLICABLE', 59, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('e8e091a2-a29f-429f-9c6a-0d193c10b43d', 'Loperamide Hydrochloride', 14, 2);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('f95575fc-8086-4727-931e-b8059ea753ad', 'Omeprazole', 57, 3);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('7acd5823-ff92-478c-9237-e993d5d15c57', 'White Petroleum', 36, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('8008c5c7-8f53-4d68-82bd-27a7062d2a37', 'Ketoconazole', 29, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('d3ab87da-46e7-47aa-8ffa-4ac4443ceb63', 'Glyburide', 84, 1);
+INSERT INTO [DrugUnits] (Id, Name, Count, DrugTypeId) VALUES ('1f14d461-1f2d-4f40-b8e0-89e55b918b20', 'Example Drug Name', 1, 1);
 
 
 INSERT INTO [Clinics] (Id, Name, Address) VALUES ('9939aa78-beea-499e-a681-9a754d84ef0a', 'Hospital of the Philippines Diliman', '9983 Grayhawk Plaza');
@@ -121,6 +124,7 @@ INSERT INTO [Clinics] (Id, Name, Address) VALUES ('11113ed7-585d-4bab-9457-53e09
 INSERT INTO [Clinics] (Id, Name, Address) VALUES ('9706b518-409d-4420-8546-b804cfb5e21b', 'Grand View Clinic', '05335 Carioca Lane');
 
 
+INSERT INTO [Visits] (Id, DateOfVisit, PatientId, ClinicId, DrugUnitId) VALUES ('0b608dac-12b4-4e6d-8173-be431c9fc868', '2010-10-08 22:06:28', 'a51fa494-e879-4b17-9194-fd85b9f0e116', '8ca6ec48-9d77-4490-960f-f86a29f6bc9a', 'f95575fc-8086-4727-931e-b8059ea753ad');
 INSERT INTO [Visits] (Id, DateOfVisit, PatientId, ClinicId, DrugUnitId) VALUES ('dcc62a43-e4db-4518-b1e9-7497ce6b184c', '2010-10-08 22:06:28', 'c310b459-60de-4191-85f5-282e5a30366b', '8ca6ec48-9d77-4490-960f-f86a29f6bc9a', 'f95575fc-8086-4727-931e-b8059ea753ad');
 INSERT INTO [Visits] (Id, DateOfVisit, PatientId, ClinicId, DrugUnitId) VALUES ('0b688177-0374-4230-9011-e65d87d2c657', '2021-03-02 22:47:33', 'f3e1c81d-4b67-4f42-b17c-4389fcd78dff', 'df1eaa1f-3eb7-4fbf-b625-746e2021d2d7', 'a86c5a18-f7f2-4795-a2f2-b72b5fd0b2de');
 INSERT INTO [Visits] (Id, DateOfVisit, PatientId, ClinicId, DrugUnitId) VALUES ('5cb97f3b-526b-4aeb-a61b-453834f57325', '2007-03-23 05:20:43', '0fbb5fbd-77a1-4fef-be03-810a1d6d0df3', '46d11517-2097-415d-9262-7ca66fcb70e5', '51c5c2f0-beee-4541-bedf-07245b07ed8f');
