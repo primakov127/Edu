@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ImpromptuInterface" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Implementation\ConsoleLogger.cs">
       <ExcludeFromSourceAnalysis>True</ExcludeFromSourceAnalysis>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
